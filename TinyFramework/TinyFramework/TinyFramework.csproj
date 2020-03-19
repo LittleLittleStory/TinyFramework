@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\DataStruct\LoadType.cs" />
+    <Compile Include="Base\DataStruct\TypeNamePair.cs" />
     <Compile Include="Base\EventPool\EventPool.cs" />
     <Compile Include="Base\EventPool\EventPool.Event.cs" />
     <Compile Include="Base\EventPool\EventPoolMode.cs" />
@@ -50,12 +52,20 @@
     <Compile Include="Base\ReferencePool\ReferencePool.ReferenceCollection.cs" />
     <Compile Include="Base\ReferencePool\ReferencePoolInfo.cs" />
     <Compile Include="Base\EventPool\BaseEventArgs.cs" />
+    <Compile Include="Base\Variable\GenericVariable.cs" />
+    <Compile Include="Base\Variable\Variable.cs" />
     <Compile Include="Event\EventManager.cs" />
+    <Compile Include="FSM\Fsm.cs" />
+    <Compile Include="FSM\FsmBase.cs" />
+    <Compile Include="FSM\FsmManager.cs" />
+    <Compile Include="FSM\FsmState.cs" />
     <Compile Include="Event\GameEventArgs.cs" />
     <Compile Include="Event\IEventManager.cs" />
     <Compile Include="Base\FrameWork\GameFrameworkEventArgs.cs" />
     <Compile Include="Base\FrameWork\GameFrameworkModule.cs" />
     <Compile Include="Base\ReferencePool\IReference.cs" />
+    <Compile Include="FSM\IFsm.cs" />
+    <Compile Include="FSM\IFsmManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Base\ReferencePool\ReferencePool.cs" />
   </ItemGroup>

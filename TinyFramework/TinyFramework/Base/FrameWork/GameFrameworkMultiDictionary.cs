@@ -144,7 +144,6 @@ namespace TinyFramework
                                 m_Dictionary[key] = new GameFrameworkLinkedListRange<TValue>(next, range.Terminal);
                             }
                         }
-
                         m_LinkedList.Remove(current);
                         return true;
                     }

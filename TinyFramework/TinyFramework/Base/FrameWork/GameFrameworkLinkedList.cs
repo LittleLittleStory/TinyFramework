@@ -10,7 +10,9 @@ namespace TinyFramework
     /// <typeparam name="T">指定链表的元素类型。</typeparam>
     public sealed class GameFrameworkLinkedList<T> : ICollection<T>, IEnumerable<T>, ICollection, IEnumerable
     {
+        //链表
         private readonly LinkedList<T> m_LinkedList;
+        //缓存
         private readonly Queue<LinkedListNode<T>> m_CachedNodes;
 
         /// <summary>
@@ -327,15 +329,6 @@ namespace TinyFramework
             ReleaseNode(last);
         }
 
-        /// <summary>
-        /// 返回循环访问集合的枚举数。
-        /// </summary>
-        /// <returns>循环访问集合的枚举数。</returns>
-        public Enumerator GetEnumerator()
-        {
-            return new Enumerator(m_LinkedList);
-        }
-
         private LinkedListNode<T> AcquireNode(T value)
         {
             LinkedListNode<T> node = null;
@@ -356,6 +349,15 @@ namespace TinyFramework
         {
             node.Value = default(T);
             m_CachedNodes.Enqueue(node);
+        }
+
+        /// <summary>
+        /// 返回循环访问集合的枚举数。
+        /// </summary>
+        /// <returns>循环访问集合的枚举数。</returns>
+        public Enumerator GetEnumerator()
+        {
+            return new Enumerator(m_LinkedList);
         }
 
         IEnumerator<T> IEnumerable<T>.GetEnumerator()
