@@ -54,6 +54,15 @@
     <Compile Include="Base\EventPool\BaseEventArgs.cs" />
     <Compile Include="Base\Variable\GenericVariable.cs" />
     <Compile Include="Base\Variable\Variable.cs" />
+    <Compile Include="Config\ConfigManager.ConfigData.cs" />
+    <Compile Include="Config\ConfigManager.cs" />
+    <Compile Include="Config\ConfigManager.LoadConfigInfo.cs" />
+    <Compile Include="Config\IConfigHelper.cs" />
+    <Compile Include="Config\IConfigManager.cs" />
+    <Compile Include="Config\LoadConfigDependencyAssetEventArgs.cs" />
+    <Compile Include="Config\LoadConfigFailureEventArgs.cs" />
+    <Compile Include="Config\LoadConfigSuccessEventArgs.cs" />
+    <Compile Include="Config\LoadConfigUpdateEventArgs.cs" />
     <Compile Include="Event\EventManager.cs" />
     <Compile Include="FSM\Fsm.cs" />
     <Compile Include="FSM\FsmBase.cs" />
