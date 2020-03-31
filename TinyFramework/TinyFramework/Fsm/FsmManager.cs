@@ -1,10 +1,3 @@
-//------------------------------------------------------------
-// Game Framework
-// Copyright © 2013-2020 Jiang Yin. All rights reserved.
-// Homepage: https://gameframework.cn/
-// Feedback: mailto:ellan@gameframework.cn
-//------------------------------------------------------------
-
 using System;
 using System.Collections.Generic;
 
@@ -13,11 +6,12 @@ namespace TinyFramework.Fsm
     /// <summary>
     /// 有限状态机管理器。
     /// </summary>
-    internal sealed class FsmManager : GameFrameworkModule, IFsmManager
+    internal sealed class FsmManager : TinyFrameworkModule, IFsmManager
     {
         private readonly Dictionary<TypeNamePair, FsmBase> m_Fsms;
         private readonly List<FsmBase> m_TempFsms;
 
+        public TypeNamePair typeNamePair = new TypeNamePair(typeof(int));
         /// <summary>
         /// 初始化有限状态机管理器的新实例。
         /// </summary>
@@ -256,7 +250,7 @@ namespace TinyFramework.Fsm
             TypeNamePair typeNamePair = new TypeNamePair(typeof(T), name);
             if (HasFsm<T>(name))
             {
-                throw new Exception(String.Format("Already exist FSM '{0}'.", typeNamePair.ToString()));
+                throw new Exception(Utility.Text.Format("Already exist FSM '{0}'.", typeNamePair.ToString()));
             }
 
             Fsm<T> fsm = Fsm<T>.Create(name, owner, states);
@@ -289,7 +283,7 @@ namespace TinyFramework.Fsm
             TypeNamePair typeNamePair = new TypeNamePair(typeof(T), name);
             if (HasFsm<T>(name))
             {
-                throw new Exception(String.Format("Already exist FSM '{0}'.", typeNamePair));
+                throw new Exception(Utility.Text.Format("Already exist FSM '{0}'.", typeNamePair));
             }
 
             Fsm<T> fsm = Fsm<T>.Create(name, owner, states);

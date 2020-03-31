@@ -1,10 +1,3 @@
-//------------------------------------------------------------
-// Game Framework
-// Copyright © 2013-2020 Jiang Yin. All rights reserved.
-// Homepage: https://gameframework.cn/
-// Feedback: mailto:ellan@gameframework.cn
-//------------------------------------------------------------
-
 using System;
 using System.Collections.Generic;
 
@@ -157,7 +150,7 @@ namespace TinyFramework.Fsm
                 Type stateType = state.GetType();
                 if (fsm.m_States.ContainsKey(stateType))
                 {
-                    throw new Exception(String.Format("FSM '{0}' state '{1}' is already exist.", new TypeNamePair(typeof(T), name).ToString(), stateType));
+                    throw new Exception(Utility.Text.Format("FSM '{0}' state '{1}' is already exist.", new TypeNamePair(typeof(T), name).ToString(), stateType));
                 }
 
                 fsm.m_States.Add(stateType, state);
@@ -200,7 +193,7 @@ namespace TinyFramework.Fsm
                 Type stateType = state.GetType();
                 if (fsm.m_States.ContainsKey(stateType))
                 {
-                    throw new Exception(String.Format("FSM '{0}' state '{1}' is already exist.", new TypeNamePair(typeof(T), name).ToString(), stateType));
+                    throw new Exception(Utility.Text.Format("FSM '{0}' state '{1}' is already exist.", new TypeNamePair(typeof(T), name).ToString(), stateType));
                 }
 
                 fsm.m_States.Add(stateType, state);
@@ -248,7 +241,7 @@ namespace TinyFramework.Fsm
             FsmState<T> state = GetState<TState>();
             if (state == null)
             {
-                throw new Exception(String.Format("FSM '{0}' can not start state '{1}' which is not exist.", new TypeNamePair(typeof(T), Name).ToString(), typeof(TState).FullName));
+                throw new Exception(Utility.Text.Format("FSM '{0}' can not start state '{1}' which is not exist.", new TypeNamePair(typeof(T), Name).ToString(), typeof(TState).FullName));
             }
 
             m_CurrentStateTime = 0f;
@@ -274,13 +267,13 @@ namespace TinyFramework.Fsm
 
             if (!typeof(FsmState<T>).IsAssignableFrom(stateType))
             {
-                throw new Exception(String.Format("State type '{0}' is invalid.", stateType.FullName));
+                throw new Exception(Utility.Text.Format("State type '{0}' is invalid.", stateType.FullName));
             }
 
             FsmState<T> state = GetState(stateType);
             if (state == null)
             {
-                throw new Exception(String.Format("FSM '{0}' can not start state '{1}' which is not exist.", new TypeNamePair(typeof(T), Name).ToString(), stateType.FullName));
+                throw new Exception(Utility.Text.Format("FSM '{0}' can not start state '{1}' which is not exist.", new TypeNamePair(typeof(T), Name).ToString(), stateType.FullName));
             }
 
             m_CurrentStateTime = 0f;
@@ -312,7 +305,7 @@ namespace TinyFramework.Fsm
 
             if (!typeof(FsmState<T>).IsAssignableFrom(stateType))
             {
-                throw new Exception(String.Format("State type '{0}' is invalid.", stateType.FullName));
+                throw new Exception(Utility.Text.Format("State type '{0}' is invalid.", stateType.FullName));
             }
 
             return m_States.ContainsKey(stateType);
@@ -348,7 +341,7 @@ namespace TinyFramework.Fsm
 
             if (!typeof(FsmState<T>).IsAssignableFrom(stateType))
             {
-                throw new Exception(String.Format("State type '{0}' is invalid.", stateType.FullName));
+                throw new Exception(Utility.Text.Format("State type '{0}' is invalid.", stateType.FullName));
             }
 
             FsmState<T> state = null;
@@ -534,7 +527,7 @@ namespace TinyFramework.Fsm
             FsmState<T> state = GetState(stateType);
             if (state == null)
             {
-                throw new Exception(String.Format("FSM '{0}' can not change state to '{1}' which is not exist.", new TypeNamePair(typeof(T), Name).ToString(), stateType.FullName));
+                throw new Exception(Utility.Text.Format("FSM '{0}' can not change state to '{1}' which is not exist.", new TypeNamePair(typeof(T), Name).ToString(), stateType.FullName));
             }
 
             m_CurrentState.OnLeave(this, false);

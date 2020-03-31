@@ -1,8 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TinyFramework
 {
@@ -169,7 +166,7 @@ namespace TinyFramework
             if (!typeof(IReference).IsAssignableFrom(referenceType))
             {
                 //TODO
-                throw new Exception(string.Format("Reference type '{0}' is invalid.", referenceType.FullName));
+                throw new Exception(Utility.Text.Format("Reference type '{0}' is invalid.", referenceType.FullName));
             }
         }
 

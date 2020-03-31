@@ -3,7 +3,7 @@ namespace TinyFramework
     /// <summary>
     /// 事件基类。
     /// </summary>
-    public abstract class BaseEventArgs : GameFrameworkEventArgs
+    public abstract class BaseEventArgs : TinyFrameworkEventArgs
     {
         /// <summary>
         /// 获取类型编号。

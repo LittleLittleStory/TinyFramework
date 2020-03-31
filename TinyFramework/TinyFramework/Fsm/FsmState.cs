@@ -1,10 +1,3 @@
-//------------------------------------------------------------
-// Game Framework
-// Copyright © 2013-2020 Jiang Yin. All rights reserved.
-// Homepage: https://gameframework.cn/
-// Feedback: mailto:ellan@gameframework.cn
-//------------------------------------------------------------
-
 using System;
 
 namespace TinyFramework.Fsm
@@ -101,7 +94,7 @@ namespace TinyFramework.Fsm
 
             if (!typeof(FsmState<T>).IsAssignableFrom(stateType))
             {
-                throw new Exception(String.Format("State type '{0}' is invalid.", stateType.FullName));
+                throw new Exception(Utility.Text.Format("State type '{0}' is invalid.", stateType.FullName));
             }
 
             fsmImplement.ChangeState(stateType);

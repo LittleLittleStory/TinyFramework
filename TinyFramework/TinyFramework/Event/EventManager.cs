@@ -1,15 +1,11 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TinyFramework.Event
 {
 /// <summary>
     /// 事件管理器。
     /// </summary>
-    internal sealed class EventManager : GameFrameworkModule, IEventManager
+    internal sealed class EventManager : TinyFrameworkModule, IEventManager
     {
         private readonly EventPool<GameEventArgs> m_EventPool;
 

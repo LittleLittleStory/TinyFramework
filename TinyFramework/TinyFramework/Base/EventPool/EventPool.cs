@@ -1,8 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TinyFramework
 {
@@ -12,7 +9,7 @@ namespace TinyFramework
     /// <typeparam name="T">事件类型。</typeparam>
     internal sealed partial class EventPool<T> where T : BaseEventArgs
     {
-        private readonly GameFrameworkMultiDictionary<int, EventHandler<T>> m_EventHandlers;
+        private readonly TinyFrameworkMultiDictionary<int, EventHandler<T>> m_EventHandlers;
         private readonly Queue<Event> m_Events;
         private readonly Dictionary<object, LinkedListNode<EventHandler<T>>> m_CachedNodes;
         private readonly Dictionary<object, LinkedListNode<EventHandler<T>>> m_TempNodes;
@@ -25,7 +22,7 @@ namespace TinyFramework
         /// <param name="mode">事件池模式。</param>
         public EventPool(EventPoolMode mode)
         {
-            m_EventHandlers = new GameFrameworkMultiDictionary<int, EventHandler<T>>();
+            m_EventHandlers = new TinyFrameworkMultiDictionary<int, EventHandler<T>>();
             m_Events = new Queue<Event>();
             m_CachedNodes = new Dictionary<object, LinkedListNode<EventHandler<T>>>();
             m_TempNodes = new Dictionary<object, LinkedListNode<EventHandler<T>>>();
@@ -105,7 +102,7 @@ namespace TinyFramework
         /// <returns>事件处理函数的数量。</returns>
         public int Count(int id)
         {
-            GameFrameworkLinkedListRange<EventHandler<T>> range = default(GameFrameworkLinkedListRange<EventHandler<T>>);
+            TinyFrameworkLinkedListRange<EventHandler<T>> range = default(TinyFrameworkLinkedListRange<EventHandler<T>>);
             if (m_EventHandlers.TryGetValue(id, out range))
             {
                 return range.Count;
@@ -151,12 +148,12 @@ namespace TinyFramework
             else if ((m_EventPoolMode & EventPoolMode.AllowMultiHandler) == 0)
             {
                 //TODO
-                throw new Exception(String.Format("Event '{0}' not allow multi handler.", id.ToString()));
+                throw new Exception(Utility.Text.Format("Event '{0}' not allow multi handler.", id.ToString()));
             }
             else if ((m_EventPoolMode & EventPoolMode.AllowDuplicateHandler) == 0 && Check(id, handler))
             {
                 //TODO
-                throw new Exception(String.Format("Event '{0}' not allow duplicate handler.", id.ToString()));
+                throw new Exception(Utility.Text.Format("Event '{0}' not allow duplicate handler.", id.ToString()));
             }
             else
             {
@@ -201,7 +198,7 @@ namespace TinyFramework
             if (!m_EventHandlers.Remove(id, handler))
             {
                 //TODO
-                throw new Exception(String.Format("Event '{0}' not exists specified handler.", id.ToString()));
+                throw new Exception(Utility.Text.Format("Event '{0}' not exists specified handler.", id.ToString()));
             }
         }
 
@@ -246,7 +243,7 @@ namespace TinyFramework
         private void HandleEvent(object sender, T e)
         {
             bool noHandlerException = false;
-            GameFrameworkLinkedListRange<EventHandler<T>> range = default(GameFrameworkLinkedListRange<EventHandler<T>>);
+            TinyFrameworkLinkedListRange<EventHandler<T>> range = default(TinyFrameworkLinkedListRange<EventHandler<T>>);
             if (m_EventHandlers.TryGetValue(e.Id, out range))
             {
                 LinkedListNode<EventHandler<T>> current = range.First;
@@ -273,7 +270,7 @@ namespace TinyFramework
             if (noHandlerException)
             {
                 //TODO
-                throw new Exception(String.Format("Event '{0}' not allow no handler.", e.Id.ToString()));
+                throw new Exception(Utility.Text.Format("Event '{0}' not allow no handler.", e.Id.ToString()));
             }
         }
     }
