@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{36C1D9EE-DE28-4DC2-85BF-A57FADB75AC6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TinyFramework</RootNamespace>
+    <AssemblyName>TinyFramework</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\DataStruct\TinyFrameworkSegment.cs" />
+    <Compile Include="Base\DataStruct\Struct\TypeNamePair.cs" />
+    <Compile Include="Base\EventPool\EventPool.cs" />
+    <Compile Include="Base\EventPool\EventPool.Event.cs" />
+    <Compile Include="Base\EventPool\EventPoolMode.cs" />
+    <Compile Include="Base\DataStruct\Collection\TinyFrameworkLinkedList.cs" />
+    <Compile Include="Base\DataStruct\Collection\TinyFrameworkLinkedListRange.cs" />
+    <Compile Include="Base\DataStruct\Collection\TinyFrameworkMultiDictionary.cs" />
+    <Compile Include="Base\TinyFrameworkException.cs" />
+    <Compile Include="Base\ReferencePool\ReferencePool.ReferenceCollection.cs" />
+    <Compile Include="Base\ReferencePool\ReferencePoolInfo.cs" />
+    <Compile Include="Base\EventPool\BaseEventArgs.cs" />
+    <Compile Include="Base\DataStruct\Variable\GenericVariable.cs" />
+    <Compile Include="Base\DataStruct\Variable\Variable.cs" />
+    <Compile Include="Base\TaskPool\ITaskAgent.cs" />
+    <Compile Include="Base\TaskPool\StartTaskStatus.cs" />
+    <Compile Include="Base\TaskPool\TaskBase.cs" />
+    <Compile Include="Base\TaskPool\TaskInfo.cs" />
+    <Compile Include="Base\TaskPool\TaskPool.cs" />
+    <Compile Include="Base\TaskPool\TaskStatus.cs" />
+    <Compile Include="Base\DataStruct\DataNode\DataNodeManager.cs" />
+    <Compile Include="Base\DataStruct\DataNode\DataNodeManager.DataNode.cs" />
+    <Compile Include="Base\DataStruct\DataNode\IDataNode.cs" />
+    <Compile Include="Base\DataStruct\DataNode\IDataNodeManager.cs" />
+    <Compile Include="DataTable\DataTableBase.cs" />
+    <Compile Include="DataTable\DataTableManager.cs" />
+    <Compile Include="DataTable\DataTableManager.DataTable.cs" />
+    <Compile Include="DataTable\DataTableManager.LoadDataTableInfo.cs" />
+    <Compile Include="DataTable\IDataRow.cs" />
+    <Compile Include="DataTable\IDataTable.cs" />
+    <Compile Include="DataTable\IDataTableHelper.cs" />
+    <Compile Include="DataTable\IDataTableManager.cs" />
+    <Compile Include="DataTable\LoadDataTableDependencyAssetEventArgs.cs" />
+    <Compile Include="DataTable\LoadDataTableFailureEventArgs.cs" />
+    <Compile Include="DataTable\LoadDataTableSuccessEventArgs.cs" />
+    <Compile Include="DataTable\LoadDataTableUpdateEventArgs.cs" />
+    <Compile Include="Download\Constant.cs" />
+    <Compile Include="Download\DownloadAgentHelperCompleteEventArgs.cs" />
+    <Compile Include="Download\DownloadAgentHelperErrorEventArgs.cs" />
+    <Compile Include="Download\DownloadAgentHelperUpdateBytesEventArgs.cs" />
+    <Compile Include="Download\DownloadAgentHelperUpdateLengthEventArgs.cs" />
+    <Compile Include="Download\DownloadFailureEventArgs.cs" />
+    <Compile Include="Download\DownloadManager.cs" />
+    <Compile Include="Download\DownloadManager.DownloadAgent.cs" />
+    <Compile Include="Download\DownloadManager.DownloadCounter.cs" />
+    <Compile Include="Download\DownloadManager.DownloadCounter.DownloadCounterNode.cs" />
+    <Compile Include="Download\DownloadManager.DownloadTask.cs" />
+    <Compile Include="Download\DownloadManager.DownloadTaskStatus.cs" />
+    <Compile Include="Download\DownloadStartEventArgs.cs" />
+    <Compile Include="Download\DownloadSuccessEventArgs.cs" />
+    <Compile Include="Download\DownloadUpdateEventArgs.cs" />
+    <Compile Include="Download\IDownloadAgentHelper.cs" />
+    <Compile Include="Download\IDownloadManager.cs" />
+    <Compile Include="Event\EventManager.cs" />
+    <Compile Include="FSM\Fsm.cs" />
+    <Compile Include="FSM\FsmBase.cs" />
+    <Compile Include="FSM\FsmManager.cs" />
+    <Compile Include="FSM\FsmState.cs" />
+    <Compile Include="Event\GameEventArgs.cs" />
+    <Compile Include="Event\IEventManager.cs" />
+    <Compile Include="Base\FrameWork\TinyFrameworkEventArgs.cs" />
+    <Compile Include="Base\FrameWork\TinyFrameworkModule.cs" />
+    <Compile Include="Base\ReferencePool\IReference.cs" />
+    <Compile Include="FSM\IFsm.cs" />
+    <Compile Include="FSM\IFsmManager.cs" />
+    <Compile Include="IResourceManager.cs" />
+    <Compile Include="Localization\ILocalizationHelper.cs" />
+    <Compile Include="Localization\ILocalizationManager.cs" />
+    <Compile Include="Localization\Language.cs" />
+    <Compile Include="Localization\LoadDictionaryDependencyAssetEventArgs.cs" />
+    <Compile Include="Localization\LoadDictionaryFailureEventArgs.cs" />
+    <Compile Include="Localization\LoadDictionarySuccessEventArgs.cs" />
+    <Compile Include="Localization\LoadDictionaryUpdateEventArgs.cs" />
+    <Compile Include="Localization\LocalizationManager.cs" />
+    <Compile Include="Localization\LocalizationManager.LoadDictionaryInfo.cs" />
+    <Compile Include="ObjectPool\IObjectPool.cs" />
+    <Compile Include="ObjectPool\IObjectPoolManager.cs" />
+    <Compile Include="ObjectPool\ObjectBase.cs" />
+    <Compile Include="ObjectPool\ObjectInfo.cs" />
+    <Compile Include="ObjectPool\ObjectPoolBase.cs" />
+    <Compile Include="ObjectPool\ObjectPoolManager.cs" />
+    <Compile Include="ObjectPool\ObjectPoolManager.Object.cs" />
+    <Compile Include="ObjectPool\ObjectPoolManager.ObjectPool.cs" />
+    <Compile Include="ObjectPool\ReleaseObjectFilterCallback.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Base\ReferencePool\ReferencePool.cs" />
+    <Compile Include="ResourceManager.cs" />
+    <Compile Include="Resource\Constant.cs" />
+    <Compile Include="Resource\LoadAssetCallbacks.cs" />
+    <Compile Include="Resource\LoadAssetDependencyAssetCallback.cs" />
+    <Compile Include="Resource\LoadAssetFailureCallback.cs" />
+    <Compile Include="Resource\LoadAssetSuccessCallback.cs" />
+    <Compile Include="Resource\LoadResourceStatus.cs" />
+    <Compile Include="Resource\LoadType.cs" />
+    <Compile Include="Utility\Utility.Assembly.cs" />
+    <Compile Include="Utility\Utility.cs" />
+    <Compile Include="Utility\Utility.Json.cs" />
+    <Compile Include="Utility\Utility.Json.IJsonHelper.cs" />
+    <Compile Include="Utility\Utility.Text.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Utility\Utility.Converter.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

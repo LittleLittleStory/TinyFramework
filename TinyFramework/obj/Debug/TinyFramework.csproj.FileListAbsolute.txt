@@ -1,0 +1,10 @@
+C:\Users\acer\Desktop\TinyFramework\TinyFramework\TinyFramework\obj\Debug\TinyFramework.csprojAssemblyReference.cache
+C:\Users\acer\Desktop\TinyFramework\TinyFramework\TinyFramework\obj\Debug\TinyFramework.csproj.CoreCompileInputs.cache
+C:\Users\acer\Desktop\TinyFramework\obj\Debug\TinyFramework.csprojAssemblyReference.cache
+C:\Users\acer\Desktop\TinyFramework\obj\Debug\TinyFramework.csproj.CoreCompileInputs.cache
+C:\Users\acer\Desktop\TinyFramework\TinyFramework\obj\Debug\TinyFramework.csprojAssemblyReference.cache
+C:\Users\acer\Desktop\TinyFramework\TinyFramework\obj\Debug\TinyFramework.csproj.CoreCompileInputs.cache
+C:\Users\acer\Desktop\TinyFramework\TinyFramework\bin\Debug\TinyFramework.dll
+C:\Users\acer\Desktop\TinyFramework\TinyFramework\bin\Debug\TinyFramework.pdb
+C:\Users\acer\Desktop\TinyFramework\TinyFramework\obj\Debug\TinyFramework.dll
+C:\Users\acer\Desktop\TinyFramework\TinyFramework\obj\Debug\TinyFramework.pdb
