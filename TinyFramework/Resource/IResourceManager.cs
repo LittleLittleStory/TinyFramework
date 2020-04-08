@@ -26,33 +26,9 @@ namespace TinyFramework.Resource
         }
 
         /// <summary>
-        /// 获取资源模式。
-        /// </summary>
-        ResourceMode ResourceMode
-        {
-            get;
-        }
-
-        /// <summary>
         /// 获取当前变体。
         /// </summary>
         string CurrentVariant
-        {
-            get;
-        }
-
-        /// <summary>
-        /// 获取当前资源适用的游戏版本号。
-        /// </summary>
-        string ApplicableGameVersion
-        {
-            get;
-        }
-
-        /// <summary>
-        /// 获取当前内部资源版本号。
-        /// </summary>
-        int InternalResourceVersion
         {
             get;
         }
@@ -69,73 +45,6 @@ namespace TinyFramework.Resource
         /// 获取已准备完毕资源数量。
         /// </summary>
         int ResourceCount
-        {
-            get;
-        }
-
-        /// <summary>
-        /// 获取资源组数量。
-        /// </summary>
-        int ResourceGroupCount
-        {
-            get;
-        }
-
-        /// <summary>
-        /// 获取或设置资源更新下载地址。
-        /// </summary>
-        string UpdatePrefixUri
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// 获取或设置每下载多少字节的资源，刷新一次资源列表。
-        /// </summary>
-        int GenerateReadWriteListLength
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// 获取或设置资源更新重试次数。
-        /// </summary>
-        int UpdateRetryCount
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// 获取正在更新的资源组。
-        /// </summary>
-        IResourceGroup UpdatingResourceGroup
-        {
-            get;
-        }
-
-        /// <summary>
-        /// 获取等待更新资源数量。
-        /// </summary>
-        int UpdateWaitingCount
-        {
-            get;
-        }
-
-        /// <summary>
-        /// 获取候选更新资源数量。
-        /// </summary>
-        int UpdateCandidateCount
-        {
-            get;
-        }
-
-        /// <summary>
-        /// 获取正在更新资源数量。
-        /// </summary>
-        int UpdatingCount
         {
             get;
         }
@@ -245,26 +154,6 @@ namespace TinyFramework.Resource
         }
 
         /// <summary>
-        /// 资源更新开始事件。
-        /// </summary>
-        event EventHandler<ResourceUpdateStartEventArgs> ResourceUpdateStart;
-
-        /// <summary>
-        /// 资源更新改变事件。
-        /// </summary>
-        event EventHandler<ResourceUpdateChangedEventArgs> ResourceUpdateChanged;
-
-        /// <summary>
-        /// 资源更新成功事件。
-        /// </summary>
-        event EventHandler<ResourceUpdateSuccessEventArgs> ResourceUpdateSuccess;
-
-        /// <summary>
-        /// 资源更新失败事件。
-        /// </summary>
-        event EventHandler<ResourceUpdateFailureEventArgs> ResourceUpdateFailure;
-
-        /// <summary>
         /// 设置资源只读区路径。
         /// </summary>
         /// <param name="readOnlyPath">资源只读区路径。</param>
@@ -275,12 +164,6 @@ namespace TinyFramework.Resource
         /// </summary>
         /// <param name="readWritePath">资源读写区路径。</param>
         void SetReadWritePath(string readWritePath);
-
-        /// <summary>
-        /// 设置资源模式。
-        /// </summary>
-        /// <param name="resourceMode">资源模式。</param>
-        void SetResourceMode(ResourceMode resourceMode);
 
         /// <summary>
         /// 设置当前变体。
@@ -324,42 +207,6 @@ namespace TinyFramework.Resource
         /// </summary>
         /// <param name="initResourcesCompleteCallback">使用单机模式并初始化资源完成时的回调函数。</param>
         void InitResources(InitResourcesCompleteCallback initResourcesCompleteCallback);
-
-        /// <summary>
-        /// 使用可更新模式并检查版本资源列表。
-        /// </summary>
-        /// <param name="latestInternalResourceVersion">最新的内部资源版本号。</param>
-        /// <returns>检查版本资源列表结果。</returns>
-        CheckVersionListResult CheckVersionList(int latestInternalResourceVersion);
-
-        /// <summary>
-        /// 使用可更新模式并更新版本资源列表。
-        /// </summary>
-        /// <param name="versionListLength">版本资源列表大小。</param>
-        /// <param name="versionListHashCode">版本资源列表哈希值。</param>
-        /// <param name="versionListZipLength">版本资源列表压缩后大小。</param>
-        /// <param name="versionListZipHashCode">版本资源列表压缩后哈希值。</param>
-        /// <param name="updateVersionListCallbacks">版本资源列表更新回调函数集。</param>
-        void UpdateVersionList(int versionListLength, int versionListHashCode, int versionListZipLength, int versionListZipHashCode, UpdateVersionListCallbacks updateVersionListCallbacks);
-
-        /// <summary>
-        /// 使用可更新模式并检查资源。
-        /// </summary>
-        /// <param name="checkResourcesCompleteCallback">使用可更新模式并检查资源完成时的回调函数。</param>
-        void CheckResources(CheckResourcesCompleteCallback checkResourcesCompleteCallback);
-
-        /// <summary>
-        /// 使用可更新模式并更新全部资源。
-        /// </summary>
-        /// <param name="updateResourcesCompleteCallback">使用可更新模式并更新默认资源组完成时的回调函数。</param>
-        void UpdateResources(UpdateResourcesCompleteCallback updateResourcesCompleteCallback);
-
-        /// <summary>
-        /// 使用可更新模式并更新指定资源组的资源。
-        /// </summary>
-        /// <param name="resourceGroupName">要更新的资源组名称。</param>
-        /// <param name="updateResourcesCompleteCallback">使用可更新模式并更新指定资源组完成时的回调函数。</param>
-        void UpdateResources(string resourceGroupName, UpdateResourcesCompleteCallback updateResourcesCompleteCallback);
 
         /// <summary>
         /// 检查资源是否存在。
@@ -441,73 +288,6 @@ namespace TinyFramework.Resource
         /// </summary>
         /// <param name="asset">要卸载的资源。</param>
         void UnloadAsset(object asset);
-
-        /// <summary>
-        /// 异步加载场景。
-        /// </summary>
-        /// <param name="sceneAssetName">要加载场景资源的名称。</param>
-        /// <param name="loadSceneCallbacks">加载场景回调函数集。</param>
-        void LoadScene(string sceneAssetName, LoadSceneCallbacks loadSceneCallbacks);
-
-        /// <summary>
-        /// 异步加载场景。
-        /// </summary>
-        /// <param name="sceneAssetName">要加载场景资源的名称。</param>
-        /// <param name="priority">加载场景资源的优先级。</param>
-        /// <param name="loadSceneCallbacks">加载场景回调函数集。</param>
-        void LoadScene(string sceneAssetName, int priority, LoadSceneCallbacks loadSceneCallbacks);
-
-        /// <summary>
-        /// 异步加载场景。
-        /// </summary>
-        /// <param name="sceneAssetName">要加载场景资源的名称。</param>
-        /// <param name="loadSceneCallbacks">加载场景回调函数集。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        void LoadScene(string sceneAssetName, LoadSceneCallbacks loadSceneCallbacks, object userData);
-
-        /// <summary>
-        /// 异步加载场景。
-        /// </summary>
-        /// <param name="sceneAssetName">要加载场景资源的名称。</param>
-        /// <param name="priority">加载场景资源的优先级。</param>
-        /// <param name="loadSceneCallbacks">加载场景回调函数集。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        void LoadScene(string sceneAssetName, int priority, LoadSceneCallbacks loadSceneCallbacks, object userData);
-
-        /// <summary>
-        /// 异步卸载场景。
-        /// </summary>
-        /// <param name="sceneAssetName">要卸载场景资源的名称。</param>
-        /// <param name="unloadSceneCallbacks">卸载场景回调函数集。</param>
-        void UnloadScene(string sceneAssetName, UnloadSceneCallbacks unloadSceneCallbacks);
-
-        /// <summary>
-        /// 异步卸载场景。
-        /// </summary>
-        /// <param name="sceneAssetName">要卸载场景资源的名称。</param>
-        /// <param name="unloadSceneCallbacks">卸载场景回调函数集。</param>
-        /// <param name="userData">用户自定义数据。</param>
-        void UnloadScene(string sceneAssetName, UnloadSceneCallbacks unloadSceneCallbacks, object userData);
-
-        /// <summary>
-        /// 检查资源组是否存在。
-        /// </summary>
-        /// <param name="resourceGroupName">要检查资源组的名称。</param>
-        /// <returns>资源组是否存在。</returns>
-        bool HasResourceGroup(string resourceGroupName);
-
-        /// <summary>
-        /// 获取默认资源组。
-        /// </summary>
-        /// <returns>默认资源组。</returns>
-        IResourceGroup GetResourceGroup();
-
-        /// <summary>
-        /// 获取资源组。
-        /// </summary>
-        /// <param name="resourceGroupName">要获取的资源组名称。</param>
-        /// <returns>要获取的资源组。</returns>
-        IResourceGroup GetResourceGroup(string resourceGroupName);
 
         /// <summary>
         /// 获取所有加载资源任务的信息。

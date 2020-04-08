@@ -12,7 +12,7 @@ namespace TinyFramework.DataTable
     {
         private readonly Dictionary<TypeNamePair, DataTableBase> m_DataTables;
         private readonly LoadAssetCallbacks m_LoadAssetCallbacks;
-        //private IResourceManager m_ResourceManager;
+        private IResourceManager m_ResourceManager;
         private IDataTableHelper m_DataTableHelper;
         private EventHandler<LoadDataTableSuccessEventArgs> m_LoadDataTableSuccessEventHandler;
         private EventHandler<LoadDataTableFailureEventArgs> m_LoadDataTableFailureEventHandler;
