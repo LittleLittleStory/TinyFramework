@@ -13,7 +13,7 @@ namespace TinyFramework
         /// 初始化类型和名称的组合值的新实例。
         /// </summary>
         /// <param name="type">类型。</param>
-        public TypeNamePair(Type type): this(type, string.Empty)
+        public TypeNamePair(Type type) : this(type, string.Empty)
         {
         }
 
@@ -24,8 +24,16 @@ namespace TinyFramework
         /// <param name="name">名称。</param>
         public TypeNamePair(Type type, string name)
         {
-            m_Type = type ?? throw new TinyFrameworkException("Type is invalid.");
-            m_Name = name ?? string.Empty;
+            if (type == null)
+            {
+                throw new TinyFrameworkException("Type is invalid.");
+            }
+            if (name == null)
+            {
+                m_Name = string.Empty;
+            }
+            m_Type = type;
+            m_Name = name;
         }
 
         /// <summary>
