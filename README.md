@@ -6,4 +6,4 @@
 （尤其是资源这块我做了很多改动与很大的删剪。）
 
 
-如果需要学习更加完善的游戏框架请移步GF https://github.com/EllanJiang/GameFramework
+如果需要学习更加完善的游戏框架请学习GF https://github.com/EllanJiang/GameFramework
