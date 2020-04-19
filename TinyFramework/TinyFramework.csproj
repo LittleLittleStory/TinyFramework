@@ -50,10 +50,6 @@
     <Compile Include="Base\DataStruct\Collection\TinyFrameworkLinkedList.cs" />
     <Compile Include="Base\DataStruct\Collection\TinyFrameworkLinkedListRange.cs" />
     <Compile Include="Base\DataStruct\Collection\TinyFrameworkMultiDictionary.cs" />
-    <Compile Include="Resource\LoadResourceAgentHelperErrorEventArgs.cs" />
-    <Compile Include="Resource\LoadResourceAgentHelperLoadCompleteEventArgs.cs" />
-    <Compile Include="Resource\LoadResourceAgentHelperParseBytesCompleteEventArgs.cs" />
-    <Compile Include="Resource\LoadResourceAgentHelperReadBytesCompleteEventArgs.cs" />
     <Compile Include="Base\TinyFrameworkException.cs" />
     <Compile Include="Base\ReferencePool\ReferencePool.ReferenceCollection.cs" />
     <Compile Include="Base\ReferencePool\ReferencePoolInfo.cs" />
@@ -70,36 +66,6 @@
     <Compile Include="Base\DataStruct\DataNode\DataNodeManager.DataNode.cs" />
     <Compile Include="Base\DataStruct\DataNode\IDataNode.cs" />
     <Compile Include="Base\DataStruct\DataNode\IDataNodeManager.cs" />
-    <Compile Include="DataTable\DataTableBase.cs" />
-    <Compile Include="DataTable\DataTableManager.cs" />
-    <Compile Include="DataTable\DataTableManager.DataTable.cs" />
-    <Compile Include="DataTable\DataTableManager.LoadDataTableInfo.cs" />
-    <Compile Include="DataTable\IDataRow.cs" />
-    <Compile Include="DataTable\IDataTable.cs" />
-    <Compile Include="DataTable\IDataTableHelper.cs" />
-    <Compile Include="DataTable\IDataTableManager.cs" />
-    <Compile Include="DataTable\LoadDataTableDependencyAssetEventArgs.cs" />
-    <Compile Include="DataTable\LoadDataTableFailureEventArgs.cs" />
-    <Compile Include="DataTable\LoadDataTableSuccessEventArgs.cs" />
-    <Compile Include="DataTable\LoadDataTableUpdateEventArgs.cs" />
-    <Compile Include="Resource\DecryptResourceCallback.cs" />
-    <Compile Include="Download\Constant.cs" />
-    <Compile Include="Download\DownloadAgentHelperCompleteEventArgs.cs" />
-    <Compile Include="Download\DownloadAgentHelperErrorEventArgs.cs" />
-    <Compile Include="Download\DownloadAgentHelperUpdateBytesEventArgs.cs" />
-    <Compile Include="Download\DownloadAgentHelperUpdateLengthEventArgs.cs" />
-    <Compile Include="Download\DownloadFailureEventArgs.cs" />
-    <Compile Include="Download\DownloadManager.cs" />
-    <Compile Include="Download\DownloadManager.DownloadAgent.cs" />
-    <Compile Include="Download\DownloadManager.DownloadCounter.cs" />
-    <Compile Include="Download\DownloadManager.DownloadCounter.DownloadCounterNode.cs" />
-    <Compile Include="Download\DownloadManager.DownloadTask.cs" />
-    <Compile Include="Download\DownloadManager.DownloadTaskStatus.cs" />
-    <Compile Include="Download\DownloadStartEventArgs.cs" />
-    <Compile Include="Download\DownloadSuccessEventArgs.cs" />
-    <Compile Include="Download\DownloadUpdateEventArgs.cs" />
-    <Compile Include="Download\IDownloadAgentHelper.cs" />
-    <Compile Include="Download\IDownloadManager.cs" />
     <Compile Include="Event\EventManager.cs" />
     <Compile Include="FSM\Fsm.cs" />
     <Compile Include="FSM\FsmBase.cs" />
@@ -112,21 +78,6 @@
     <Compile Include="Base\ReferencePool\IReference.cs" />
     <Compile Include="FSM\IFsm.cs" />
     <Compile Include="FSM\IFsmManager.cs" />
-    <Compile Include="Resource\ILoadResourceAgentHelper.cs" />
-    <Compile Include="Resource\InitResourcesCompleteCallback.cs" />
-    <Compile Include="Resource\IResourceHelper.cs" />
-    <Compile Include="Resource\IResourceManager.cs" />
-    <Compile Include="Resource\LoadBytesCallback.cs" />
-    <Compile Include="Resource\LoadResourceAgentHelperReadFileCompleteEventArgs.cs" />
-    <Compile Include="Localization\ILocalizationHelper.cs" />
-    <Compile Include="Localization\ILocalizationManager.cs" />
-    <Compile Include="Localization\Language.cs" />
-    <Compile Include="Localization\LoadDictionaryDependencyAssetEventArgs.cs" />
-    <Compile Include="Localization\LoadDictionaryFailureEventArgs.cs" />
-    <Compile Include="Localization\LoadDictionarySuccessEventArgs.cs" />
-    <Compile Include="Localization\LoadDictionaryUpdateEventArgs.cs" />
-    <Compile Include="Localization\LocalizationManager.cs" />
-    <Compile Include="Localization\LocalizationManager.LoadDictionaryInfo.cs" />
     <Compile Include="ObjectPool\IObjectPool.cs" />
     <Compile Include="ObjectPool\IObjectPoolManager.cs" />
     <Compile Include="ObjectPool\ObjectBase.cs" />
@@ -138,13 +89,6 @@
     <Compile Include="ObjectPool\ReleaseObjectFilterCallback.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Base\ReferencePool\ReferencePool.cs" />
-    <Compile Include="Resource\Constant.cs" />
-    <Compile Include="Resource\LoadAssetCallbacks.cs" />
-    <Compile Include="Resource\LoadAssetDependencyAssetCallback.cs" />
-    <Compile Include="Resource\LoadAssetFailureCallback.cs" />
-    <Compile Include="Resource\LoadAssetSuccessCallback.cs" />
-    <Compile Include="Resource\LoadResourceStatus.cs" />
-    <Compile Include="Resource\LoadType.cs" />
     <Compile Include="Utility\Utility.Assembly.cs" />
     <Compile Include="Utility\Utility.cs" />
     <Compile Include="Utility\Utility.Json.cs" />
@@ -154,5 +98,6 @@
   <ItemGroup>
     <Compile Include="Utility\Utility.Converter.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
