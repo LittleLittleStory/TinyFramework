@@ -1,0 +1,50 @@
+
+{
+    "SceneDatas" : {
+        "SampleScene" : {
+            "SceneName" : "SampleScene",
+            "SaveObjects" : {
+                "Cube" : {
+                    "Name" : "Cube",
+                    "SetValues" : {
+                        "Transform" : {
+                            "SavePos" : {
+                                "FunOpera" : "SavePos",
+                                "Value"    : "\r\n{\r\n    \"x\" : 0.0,\r\n    \"y\" : 0.0,\r\n    \"z\" : 0.0\r\n}"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "Test"        : {
+            "SceneName" : "Test",
+            "SaveObjects" : {
+                "Cube" : {
+                    "Name" : "Cube",
+                    "SetValues" : {
+                        "Transform" : {
+                            "SavePos" : {
+                                "FunOpera" : "SavePos",
+                                "Value"    : "\r\n{\r\n    \"x\" : 0.0,\r\n    \"y\" : 0.0,\r\n    \"z\" : 0.0\r\n}"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "GobalDatas" : {
+        "GobalTest" : {
+            "Name" : "GobalTest",
+            "SetValues" : {
+                "GobalTest" : {
+                    "GobalTestDebug" : {
+                        "FunOpera" : "GobalTestDebug",
+                        "Value"    : "567"
+                    }
+                }
+            }
+        }
+    }
+}
