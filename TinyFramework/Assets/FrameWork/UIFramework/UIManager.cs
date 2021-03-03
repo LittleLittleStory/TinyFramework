@@ -4,8 +4,13 @@ using VContainer.Unity;
 
 namespace TFrameWork.UI
 {
-    public class UIManager :  IUIManager,IService
+    public class UIManager : IUIManager<UIPage>, IService
     {
+        public UIManager()
+        {
+            UIPages = new Dictionary<string, UIPage>();
+        }
+
         public Dictionary<string, UIPage> UIPages { get; private set; }
 
         public bool HasUIPage(string UIPageName)
@@ -19,24 +24,9 @@ namespace TFrameWork.UI
             return page == null ? false : true;
         }
 
-        public bool GetUIPage<T>(out UIPage page) where T : UIPage, new()
+        public bool GetUIPage(out UIPage pageType)
         {
-            UIPages.TryGetValue(typeof(T).ToString(), out page);
-            return page == null ? false : true;
-        }
-
-        public UIPage GetUIPage(string UIPageName)
-        {
-            UIPage page = new UIPage();
-            UIPages.TryGetValue(UIPageName, out page);
-            return page;
-        }
-
-        public T GetUIPage<T>() where T : UIPage, new()
-        {
-            UIPage page = new UIPage();
-            UIPages.TryGetValue(typeof(T).ToString(), out page);
-            return (T)page;
+            throw new NotImplementedException();
         }
 
         public UIPage CreateUIPage(string UIPageName)

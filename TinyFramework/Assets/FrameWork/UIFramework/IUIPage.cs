@@ -8,7 +8,7 @@
         string PageName { get; }
 
         /// <summary>
-        /// 界面名称
+        /// ViewModel
         /// </summary>
         ViewModelBase<ModelBase,ViewBase> ViewModel  { get; }
 

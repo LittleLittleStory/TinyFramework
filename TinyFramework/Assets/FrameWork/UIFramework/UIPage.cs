@@ -7,30 +7,11 @@ using UnityEngine;
 
 namespace TFrameWork.UI
 {
-    public class UIPage : MonoBehaviour, IUIPage
+    public class UIPage : UIPageBase
     {
-        public string PageName { get; private set; }
-
-        public ViewModelBase<ModelBase, ViewBase> ViewModel { get; private set; }
-
-        public void ShowUIPage()
+        private void Start()
         {
-            throw new NotImplementedException();
-        }
-
-        public void CloseUIPage()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void RefreshUIPage()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void HideUIPage()
-        {
-            throw new NotImplementedException();
+            //ViewModel.Init();
         }
     }
 }

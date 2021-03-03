@@ -21,14 +21,14 @@ public class UISetting
     public string ClassName;
 }
 
-[CustomEditor(typeof(UIPage))]
+[CustomEditor(typeof(UIPageBase))]
 public class AutoBindToolInspector : Editor
 {
     private string m_ClassName;
     private string m_Namespace;
     private string m_CodePath;
     private IAutoBindRuleHelper RuleHelper;
-    private UIPage m_Target;
+    private UIPageBase m_Target;
     private string[] s_AssemblyNames = { "Assembly-CSharp-Editor" };
     private string[] m_HelperTypeNames;
     private string m_HelperTypeName;
@@ -43,7 +43,7 @@ public class AutoBindToolInspector : Editor
 
     private void OnEnable()
     {
-        m_Target = (UIPage)target;
+        m_Target = (UIPageBase)target;
         m_HelperTypeNames = GetTypeNames(typeof(IAutoBindRuleHelper), s_AssemblyNames);
 
         try

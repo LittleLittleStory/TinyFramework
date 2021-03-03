@@ -1,21 +1,24 @@
 ﻿using TFrameWork.Events;
+using TFrameWork.UI;
 using UniRx;
 using UnityEngine;
 using VContainer.Unity;
 
-public class GamePresenter : IStartable,ITickable
+public class GamePresenter : IStartable, ITickable
 {
     private IEventSystem eventSystem;
+    private UIManager uiManager;
     private CompositeDisposable disposables;
-    public GamePresenter(IEventSystem eventSystem)
+    public GamePresenter(IEventSystem eventSystem, UIManager uiManager)
     {
         this.eventSystem = eventSystem;
-
+        this.uiManager = uiManager;
         disposables = new CompositeDisposable();
     }
 
     public void Start()
     {
+        //Debug.Log(uiManager.GetCurUIPagesCount());
         eventSystem.Receive<TestEvent>().Subscribe(e =>
         {
             Debug.Log("Hello Test");

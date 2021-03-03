@@ -6,23 +6,31 @@ using UniRx;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
+using TFrameWork.UI;
 
 public class GameLifetimeScope : LifetimeScope
 {
+    public static IContainerBuilder builder;
+    public static IObjectResolver container;
     protected override void Configure(IContainerBuilder builder)
     {
-        //builder.Register<HelloWorldService>(Lifetime.Singleton);
+        GameLifetimeScope.builder = builder;
         builder.Register<IMessageBroker, MessageBroker>(Lifetime.Singleton);
         builder.Register<IEventSystem, EventSystem>(Lifetime.Singleton);
         Assembly dataAccess = Assembly.GetExecutingAssembly();
+        InitBindinterface<IService>(dataAccess, "IService");
+        GameLifetimeScope.container = GameLifetimeScope.builder.Build();
+    }
+
+    private void InitBindinterface<T>(Assembly dataAccess, string interfaceName) where T : class
+    {
         foreach (Type item in dataAccess.GetTypes())
         {
-            var result = item.GetInterface("IService");
+            var result = item.GetInterface(interfaceName);
             if (null == result)
                 continue;
-            IService service = Activator.CreateInstance(item) as IService;
+            T service = Activator.CreateInstance(item) as T;
             builder.RegisterInstance(service);
         }
-        builder.RegisterEntryPoint<GamePresenter>(Lifetime.Singleton);
     }
 }

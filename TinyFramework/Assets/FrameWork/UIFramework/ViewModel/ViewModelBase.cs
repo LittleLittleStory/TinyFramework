@@ -4,6 +4,9 @@
     where T1 : ModelBase
     where T2 : ViewBase
     {
+        public virtual void Init()
+        {
 
+        }
     }
 }
