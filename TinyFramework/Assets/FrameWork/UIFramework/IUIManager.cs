@@ -2,12 +2,12 @@
 
 namespace  TFrameWork.UI
 {
-    public interface IUIManager<T> where T:IUIPage
+    public interface IUIManager
     {
         /// <summary>
         /// UIPage管理容器
         /// </summary>
-        Dictionary<string, T> UIPages { get; }
+        Dictionary<string, IUIPage> UIPages { get; }
 
         /// <summary>
         /// 通过UIPageName判断对应UIPage是否存在
@@ -19,7 +19,7 @@ namespace  TFrameWork.UI
         /// <summary>
         /// 通过Name得到对应UIPage
         /// </summary>
-        bool GetUIPage(out T page);
+        bool GetUIPage(out IUIPage page);
 
         /// <summary>
         /// 创建UIPage
@@ -28,14 +28,14 @@ namespace  TFrameWork.UI
         /// <typeparam name="T2"></typeparam>
         /// <param name="UILayer"></param>
         /// <returns></returns>
-        T CreateUIPage(string UIPageName);
+        IUIPage CreateUIPage(string UIPageName);
 
         /// <summary>
         /// 展示指定UIPage
         /// </summary>
         /// <param name="UIPageName"></param>
         /// <returns></returns>
-        T ShowUIPage(string UIPageName);
+        IUIPage ShowUIPage(string UIPageName);
 
         /// <summary>
         /// 关闭指定UIPage

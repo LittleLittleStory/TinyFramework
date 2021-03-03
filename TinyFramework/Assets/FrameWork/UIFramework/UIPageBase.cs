@@ -9,21 +9,18 @@ using VContainer.Unity;
 
 namespace TFrameWork.UI
 {
-    public class UIPageBase : MonoBehaviour, IUIPage
+    public class UIPageBase : IUIPage
     {
         public UIManager uiManager;
-        public string PageName { get; private set; }
-        public ViewModelBase<ModelBase, ViewBase> ViewModel { get; private set; }
 
-        [Inject]
-        public void Init(UIManager uiManager)
+        public UIPageBase(string pageName, ViewModelBase<ModelBase, ViewBase> viewModel)
         {
-            this.uiManager = uiManager;
+            PageName = pageName;
+            ViewModel = viewModel;
         }
-        private void Awake()
-        {
-            GameLifetimeScope.container.InjectGameObject(gameObject);
-        }
+
+        public string PageName { get; private set; }
+        public ViewModelBase<ModelBase, ViewBase> ViewModel { get; protected set; }
 
         public virtual void ShowUIPage() { }
 

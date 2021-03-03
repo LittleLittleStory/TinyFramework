@@ -4,14 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using VContainer;
+using VContainer.Unity;
 
 namespace TFrameWork.UI
 {
-    public class UIPage : UIPageBase
+    public class UIPage: UIPageBase
     {
-        private void Start()
+        public UIPage(string pageName, ViewModelBase<ModelBase, ViewBase> viewModel) : base(pageName, viewModel) { }
+
+        [Inject]
+        public void Inject(UIManager uiManager)
         {
-            //ViewModel.Init();
+            this.uiManager = uiManager;
+        }
+        public override void ShowUIPage()
+        {
+            ViewModel.Init();
         }
     }
 }

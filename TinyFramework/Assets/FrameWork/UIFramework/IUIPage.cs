@@ -8,11 +8,6 @@
         string PageName { get; }
 
         /// <summary>
-        /// ViewModel
-        /// </summary>
-        ViewModelBase<ModelBase,ViewBase> ViewModel  { get; }
-
-        /// <summary>
         /// 展示UIPage
         /// </summary>
         void ShowUIPage();

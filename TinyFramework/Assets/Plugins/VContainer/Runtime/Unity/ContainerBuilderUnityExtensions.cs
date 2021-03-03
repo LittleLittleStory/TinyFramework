@@ -80,6 +80,16 @@ namespace VContainer.Unity
             configuration(new ComponentsBuilder(builder, root));
         }
 
+        public static RegistrationBuilder RegisterEntryPoint(this IContainerBuilder builder,Type type, Lifetime lifetime)
+        {
+            var registrationBuilder = builder.Register(type, lifetime);
+            if (type.IsSubclassOf(typeof(MonoBehaviour)))
+            {
+                registrationBuilder = registrationBuilder.As(typeof(MonoBehaviour));
+            }
+            return registrationBuilder.AsImplementedInterfaces();
+        }
+
         public static RegistrationBuilder RegisterEntryPoint<T>(this IContainerBuilder builder, Lifetime lifetime)
         {
             var registrationBuilder = builder.Register<T>(lifetime);

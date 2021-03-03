@@ -1,42 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 using VContainer.Unity;
 
 namespace TFrameWork.UI
 {
-    public class UIManager : IUIManager<UIPage>, IService
+    public class UIManager : IUIManager, IService
     {
         public UIManager()
         {
-            UIPages = new Dictionary<string, UIPage>();
+            UIPages = new Dictionary<string, IUIPage>();
         }
 
-        public Dictionary<string, UIPage> UIPages { get; private set; }
+        public Dictionary<string, IUIPage> UIPages { get; private set; }
 
         public bool HasUIPage(string UIPageName)
         {
             return UIPages.ContainsKey(UIPageName);
         }
 
-        public bool GetUIPage(string UIPageName, out UIPage page)
+        public bool GetUIPage(string UIPageName, out IUIPage page)
         {
             UIPages.TryGetValue(UIPageName, out page);
             return page == null ? false : true;
         }
 
-        public bool GetUIPage(out UIPage pageType)
+        public bool GetUIPage(out IUIPage pageType)
         {
             throw new NotImplementedException();
         }
 
-        public UIPage CreateUIPage(string UIPageName)
+        public IUIPage CreateUIPage(string UIPageName)
         {
             throw new NotImplementedException();
         }
 
-        public UIPage ShowUIPage(string UIPageName)
+        public IUIPage ShowUIPage(string UIPageName)
         {
-            UIPage page;
+            IUIPage page;
             if (GetUIPage(UIPageName, out page))
             {
                 page.ShowUIPage();
@@ -50,7 +51,7 @@ namespace TFrameWork.UI
 
         public bool CloseUIPage(string UIPageName)
         {
-            UIPage page;
+            IUIPage page;
             if (GetUIPage(UIPageName, out page))
             {
                 page.CloseUIPage();
@@ -65,7 +66,7 @@ namespace TFrameWork.UI
 
         public void RefreshUIPage(string UIPageName)
         {
-            UIPage page;
+            IUIPage page;
             if (GetUIPage(UIPageName, out page))
             {
                 page.RefreshUIPage();
@@ -74,7 +75,7 @@ namespace TFrameWork.UI
 
         public bool HideUIPage(string UIPageName)
         {
-            UIPage page;
+            IUIPage page;
             if (GetUIPage(UIPageName, out page))
             {
                 page.HideUIPage();

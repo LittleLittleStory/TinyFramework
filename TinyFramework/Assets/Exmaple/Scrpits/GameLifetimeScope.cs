@@ -10,27 +10,41 @@ using TFrameWork.UI;
 
 public class GameLifetimeScope : LifetimeScope
 {
-    public static IContainerBuilder builder;
-    public static IObjectResolver container;
+    public static IContainerBuilder Builder;
+    public new static IObjectResolver Container;
     protected override void Configure(IContainerBuilder builder)
     {
-        GameLifetimeScope.builder = builder;
+        GameLifetimeScope.Builder = builder;
         builder.Register<IMessageBroker, MessageBroker>(Lifetime.Singleton);
         builder.Register<IEventSystem, EventSystem>(Lifetime.Singleton);
         Assembly dataAccess = Assembly.GetExecutingAssembly();
-        InitBindinterface<IService>(dataAccess, "IService");
-        GameLifetimeScope.container = GameLifetimeScope.builder.Build();
+        InitBindInterface<IService>(dataAccess, "IService");
+        Builder.RegisterEntryPoint(typeof(GamePresenter), Lifetime.Singleton);
+        GameLifetimeScope.Container = GameLifetimeScope.Builder.Build();
+        //builder.RegisterEntryPoint<GamePresenter>(Lifetime.Singleton);
     }
 
-    private void InitBindinterface<T>(Assembly dataAccess, string interfaceName) where T : class
+    private void InitBindInterface<T>(Assembly dataAccess, string interfaceName) where T : class
     {
         foreach (Type item in dataAccess.GetTypes())
         {
             var result = item.GetInterface(interfaceName);
             if (null == result)
                 continue;
-            T service = Activator.CreateInstance(item) as T;
-            builder.RegisterInstance(service);
+            Builder.Register(item,Lifetime.Singleton);
         }
+    }
+
+    private void InitBindEntryPoint(Assembly dataAccess, string interfaceName)
+    {
+        /*foreach (Type item in dataAccess.GetTypes())
+        {
+            if (item == typeof(IStartable))
+                continue;
+            var result = item.GetInterface(interfaceName);
+            if (null == result)
+                continue;
+
+        }*/
     }
 }
