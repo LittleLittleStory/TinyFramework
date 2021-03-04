@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TFrameWork.Singleton;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using VContainer.Unity;
 
 public class GameSaveSystem : Singleton<GameSaveSystem>, IGameSaveSystem
 {
     public GameData gameData { get; private set; }
-    public static string[] assemblyNames = { "Assembly-CSharp" };
+    public static string[] assemblyNames = { "Game" };
 
     public static GameSaveSystem gameSaveSystem
     {

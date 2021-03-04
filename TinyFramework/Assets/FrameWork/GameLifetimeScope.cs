@@ -1,12 +1,11 @@
 using TFrameWork.Events;
 using System;
-using System.Collections.Generic;
 using System.Reflection;
 using UniRx;
-using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 using TFrameWork.UI;
+using TFrameWork.VContainer;
 
 public class GameLifetimeScope : LifetimeScope
 {
@@ -19,8 +18,8 @@ public class GameLifetimeScope : LifetimeScope
         builder.Register<IEventSystem, EventSystem>(Lifetime.Singleton);
         Assembly dataAccess = Assembly.GetExecutingAssembly();
         InitBindInterface<IService>(dataAccess, "IService");
-        Builder.Register(typeof(ViewModelTest), Lifetime.Singleton);
-        Builder.RegisterEntryPoint(typeof(GamePresenter), Lifetime.Singleton);
+        //Builder.Register(typeof(ViewModelTest), Lifetime.Singleton);
+        //Builder.RegisterEntryPoint(typeof(GamePresenter), Lifetime.Singleton);
         GameLifetimeScope.Container = GameLifetimeScope.Builder.Build();
         //builder.RegisterEntryPoint<GamePresenter>(Lifetime.Singleton);
     }

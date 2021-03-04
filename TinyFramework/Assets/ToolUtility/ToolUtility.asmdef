@@ -1,0 +1,16 @@
+{
+    "name": "ToolUtility",
+    "references": [
+        "GUID:62c022bc102688b4fb848b98cf958442",
+        "GUID:043536c26f32c414d81daaaec2ed19a3"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
