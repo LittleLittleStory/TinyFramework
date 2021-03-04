@@ -30,9 +30,14 @@ namespace TFrameWork.UI
             throw new NotImplementedException();
         }
 
-        public IUIPage CreateUIPage(string UIPageName)
+        public IUIPage CreateUIPage<TViewModel, TModel, TView>(string UIPageName)
+            where TViewModel : ViewModelBase<TModel, TView>
+            where TModel : ModelBase, new()
+            where TView : ViewBase, new()
         {
-            throw new NotImplementedException();
+            UIPage<TViewModel, TModel, TView> page = new UIPage<TViewModel, TModel, TView>(UIPageName);
+            GameLifetimeScope.Container.Inject(page);
+            return page;
         }
 
         public IUIPage ShowUIPage(string UIPageName)

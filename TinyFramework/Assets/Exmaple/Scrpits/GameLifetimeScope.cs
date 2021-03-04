@@ -19,6 +19,7 @@ public class GameLifetimeScope : LifetimeScope
         builder.Register<IEventSystem, EventSystem>(Lifetime.Singleton);
         Assembly dataAccess = Assembly.GetExecutingAssembly();
         InitBindInterface<IService>(dataAccess, "IService");
+        Builder.Register(typeof(ViewModelTest), Lifetime.Singleton);
         Builder.RegisterEntryPoint(typeof(GamePresenter), Lifetime.Singleton);
         GameLifetimeScope.Container = GameLifetimeScope.Builder.Build();
         //builder.RegisterEntryPoint<GamePresenter>(Lifetime.Singleton);
@@ -31,7 +32,7 @@ public class GameLifetimeScope : LifetimeScope
             var result = item.GetInterface(interfaceName);
             if (null == result)
                 continue;
-            Builder.Register(item,Lifetime.Singleton);
+            Builder.Register(item, Lifetime.Singleton);
         }
     }
 

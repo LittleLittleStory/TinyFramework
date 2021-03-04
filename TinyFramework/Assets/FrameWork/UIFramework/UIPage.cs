@@ -9,15 +9,13 @@ using VContainer.Unity;
 
 namespace TFrameWork.UI
 {
-    public class UIPage: UIPageBase
+    public class UIPage<TViewModel, TModel, TView> : UIPageBase<TViewModel, TModel, TView>
+        where TViewModel : ViewModelBase<TModel, TView>
+        where TModel : ModelBase, new()
+        where TView : ViewBase, new()
     {
-        public UIPage(string pageName, ViewModelBase<ModelBase, ViewBase> viewModel) : base(pageName, viewModel) { }
+        public UIPage(string pageName) : base(pageName){ }
 
-        [Inject]
-        public void Inject(UIManager uiManager)
-        {
-            this.uiManager = uiManager;
-        }
         public override void ShowUIPage()
         {
             ViewModel.Init();

@@ -28,7 +28,11 @@ namespace  TFrameWork.UI
         /// <typeparam name="T2"></typeparam>
         /// <param name="UILayer"></param>
         /// <returns></returns>
-        IUIPage CreateUIPage(string UIPageName);
+        IUIPage CreateUIPage<TViewModel, TModel, TView>(string UIPageName)
+            where TViewModel : ViewModelBase<TModel, TView>
+            where TModel : ModelBase, new()
+            where TView : ViewBase, new();
+
 
         /// <summary>
         /// 展示指定UIPage

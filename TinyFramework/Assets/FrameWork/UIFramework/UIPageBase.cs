@@ -9,18 +9,21 @@ using VContainer.Unity;
 
 namespace TFrameWork.UI
 {
-    public class UIPageBase : IUIPage
+    public class UIPageBase<TViewModel, TModel, TView> : IUIPage
+        where TViewModel : ViewModelBase<TModel, TView>
+        where TModel : ModelBase, new()
+        where TView : ViewBase, new()
     {
-        public UIManager uiManager;
+        [Inject]
+        protected UIManager uiManager { get; set; }
+        [Inject]
+        public TViewModel ViewModel { get; set; }
+        public string PageName { get; private set; }
 
-        public UIPageBase(string pageName, ViewModelBase<ModelBase, ViewBase> viewModel)
+        public UIPageBase(string pageName)
         {
             PageName = pageName;
-            ViewModel = viewModel;
         }
-
-        public string PageName { get; private set; }
-        public ViewModelBase<ModelBase, ViewBase> ViewModel { get; protected set; }
 
         public virtual void ShowUIPage() { }
 

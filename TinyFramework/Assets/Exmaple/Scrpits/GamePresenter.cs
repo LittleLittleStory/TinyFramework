@@ -18,7 +18,7 @@ public class GamePresenter : IStartable, ITickable
 
     public void Start()
     {
-        IUIPage page =   uiManager.CreateUIPage("1111");
+        IUIPage page = uiManager.CreateUIPage<ViewModelTest, ModelTest, ViewTest>("1111");
         page.ShowUIPage();
         eventSystem.Receive<TestEvent>().Subscribe(e =>
         {
