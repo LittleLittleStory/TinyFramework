@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using TFrameWork.VContainer;
 using UnityEngine;
-using VContainer.Unity;
 
 namespace TFrameWork.UI
 {
@@ -38,7 +38,7 @@ namespace TFrameWork.UI
             var prefabs = Resources.Load<GameObject>(UIPageName);
             var ui = GameObject.Instantiate(prefabs);
             UIPage<TViewModel, TModel, TView> page = new UIPage<TViewModel, TModel, TView>(UIPageName, ui);
-            GameLifetimeScope.Instance.Container.Inject(page);
+            GameLanucher.Instance.Container.Inject(page);
             return page;
         }
 

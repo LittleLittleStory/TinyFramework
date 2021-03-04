@@ -34,7 +34,7 @@ public static class GameSaveSystemExtensions
 
     public static void SaveComponent<T1, T2>(this T2 component, string sceneName = "")
         where T1 : ISave<T2>
-        where T2 : Component
+        where T2 : UnityEngine.Component
     {
         if (component.CheckEmpty())
             return;
@@ -67,7 +67,7 @@ public static class GameSaveSystemExtensions
     /// <returns></returns>
     public static bool LoadComponent<T1, T2>(this GameObject gameObject, string sceneName = "")
         where T1 : ISave<T2>
-        where T2 : Component
+        where T2 : UnityEngine.Component
     {
         if (gameObject.CheckEmpty())
             return false;
