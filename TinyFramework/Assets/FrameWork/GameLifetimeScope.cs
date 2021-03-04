@@ -9,18 +9,22 @@ using TFrameWork.VContainer;
 
 public class GameLifetimeScope : LifetimeScope
 {
-    public static IContainerBuilder Builder;
-    public new static IObjectResolver Container;
+    public static GameLifetimeScope Instance;
+    public IContainerBuilder Builder;
     protected override void Configure(IContainerBuilder builder)
     {
-        GameLifetimeScope.Builder = builder;
+        if (null== Instance)
+            Instance = this;
+        Builder = builder;
+
         builder.Register<IMessageBroker, MessageBroker>(Lifetime.Singleton);
         builder.Register<IEventSystem, EventSystem>(Lifetime.Singleton);
+
         Assembly dataAccess = Assembly.GetExecutingAssembly();
         InitBindInterface<IService>(dataAccess, "IService");
-        //Builder.Register(typeof(ViewModelTest), Lifetime.Singleton);
-        //Builder.RegisterEntryPoint(typeof(GamePresenter), Lifetime.Singleton);
-        GameLifetimeScope.Container = GameLifetimeScope.Builder.Build();
+
+        builder.Register(typeof(ViewModelTest), Lifetime.Singleton);
+        builder.RegisterEntryPoint(typeof(GamePresenter), Lifetime.Singleton);
         //builder.RegisterEntryPoint<GamePresenter>(Lifetime.Singleton);
     }
 

@@ -14,11 +14,11 @@ namespace TFrameWork.UI
         where TModel : ModelBase, new()
         where TView : ViewBase, new()
     {
-        public UIPage(string pageName) : base(pageName){ }
+        public UIPage(string pageName, GameObject gameObject) : base(pageName, gameObject) { }
 
         public override void ShowUIPage()
         {
-            ViewModel.Init();
+            ViewModel.Init(GameObject);
         }
     }
 }

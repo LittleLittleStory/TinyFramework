@@ -1,9 +1,11 @@
-﻿namespace TFrameWork.UI
+﻿using UnityEngine;
+
+namespace TFrameWork.UI
 {
     public interface IViewModelBase
     {
         string PageName { get; }
-        void Init();
+        void Init(GameObject gameObject);
         void Destory();
     }
 }

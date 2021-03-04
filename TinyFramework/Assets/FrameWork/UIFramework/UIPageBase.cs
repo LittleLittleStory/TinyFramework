@@ -19,10 +19,11 @@ namespace TFrameWork.UI
         [Inject]
         public TViewModel ViewModel { get; set; }
         public string PageName { get; private set; }
-
-        public UIPageBase(string pageName)
+        public GameObject GameObject { get; private set; }
+        public UIPageBase(string pageName,GameObject gameObject)
         {
             PageName = pageName;
+            GameObject = gameObject;
         }
 
         public virtual void ShowUIPage() { }

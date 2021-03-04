@@ -1,11 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TFrameWork.UI;
 using UnityEngine;
 
-namespace TFrameWork.UI
+public class ModelTest : ModelBase
 {
-    public class ModelTest : ModelBase
-    {
 
-    }
 }
+

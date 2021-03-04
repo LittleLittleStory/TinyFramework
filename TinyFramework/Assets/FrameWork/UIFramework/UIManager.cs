@@ -35,8 +35,10 @@ namespace TFrameWork.UI
             where TModel : ModelBase, new()
             where TView : ViewBase, new()
         {
-            UIPage<TViewModel, TModel, TView> page = new UIPage<TViewModel, TModel, TView>(UIPageName);
-            GameLifetimeScope.Container.Inject(page);
+            var prefabs = Resources.Load<GameObject>(UIPageName);
+            var ui = GameObject.Instantiate(prefabs);
+            UIPage<TViewModel, TModel, TView> page = new UIPage<TViewModel, TModel, TView>(UIPageName, ui);
+            GameLifetimeScope.Instance.Container.Inject(page);
             return page;
         }
 

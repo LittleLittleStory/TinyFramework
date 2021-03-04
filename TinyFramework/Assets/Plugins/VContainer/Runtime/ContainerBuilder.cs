@@ -75,7 +75,7 @@ namespace VContainer
         {
             var registrations = BuildRegistrations();
             var registry = FixedTypeKeyHashTableRegistry.Build(registrations);
-            var container = new Container(registry);
+            IObjectResolver container = new Container(registry);
             EmitCallbacks(container);
             return container;
         }

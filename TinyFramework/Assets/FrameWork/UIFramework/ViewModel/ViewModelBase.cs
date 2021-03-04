@@ -1,4 +1,6 @@
-﻿namespace TFrameWork.UI
+﻿using UnityEngine;
+
+namespace TFrameWork.UI
 {
     public class ViewModelBase<TModel, TView> : IViewModelBase
         where TModel : ModelBase, new()
@@ -16,10 +18,11 @@
         public string PageName { get; private set; }
         protected UIManager uiManager { get; private set; }
 
-        public void Init()
+        public void Init(GameObject gameObject)
         {
+            view.Init(gameObject);
             SetupModel(view, model);
-            SetupEvent(model);
+            SetupEvent(view);
         }
 
         public virtual void SetupModel(TView view, TModel model)
@@ -27,7 +30,7 @@
 
         }
 
-        public virtual void SetupEvent(TModel model)
+        public virtual void SetupEvent(TView model)
         {
 
         }
