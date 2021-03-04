@@ -5,6 +5,9 @@
 
 至于为什么使用VContainer，不使用Zenject的原因是因为他更新，更快，表现良好~
 
+注意！！
+没有热更功能！！！主要为单机游戏提供良好可用的解决方案。
+
 
 使用前最好了解下以下几个库：
 
@@ -40,3 +43,11 @@ ecsrx：
 
 
 https://github.com/EcsRx/ecsrx.unity
+
+插件：
+
+
+魔改版Json：
+
+
+https://github.com/XINCGer/LitJson4Unity
