@@ -13,42 +13,39 @@ public class GameLifetimeScope : LifetimeScope
     public IContainerBuilder Builder;
     protected override void Configure(IContainerBuilder builder)
     {
-        if (null== Instance)
+        if (null == Instance)
             Instance = this;
         Builder = builder;
 
         builder.Register<IMessageBroker, MessageBroker>(Lifetime.Singleton);
         builder.Register<IEventSystem, EventSystem>(Lifetime.Singleton);
-
-        Assembly dataAccess = Assembly.GetExecutingAssembly();
-        InitBindInterface<IService>(dataAccess, "IService");
-
-        builder.Register(typeof(ViewModelTest), Lifetime.Singleton);
-        builder.RegisterEntryPoint(typeof(GamePresenter), Lifetime.Singleton);
-        //builder.RegisterEntryPoint<GamePresenter>(Lifetime.Singleton);
+        builder.Register<UIManager>(Lifetime.Singleton);
+        Assembly assembly = Assembly.Load("Game");
+        InitAutoBindByInterface<IService>(assembly);
+        InitAutoBindByInterface<IViewModelBase>(assembly);
+        InitBindEntryPoint<ITickable>(assembly);
     }
 
-    private void InitBindInterface<T>(Assembly dataAccess, string interfaceName) where T : class
+    private void InitAutoBindByInterface<T>(Assembly dataAccess)
     {
         foreach (Type item in dataAccess.GetTypes())
         {
-            var result = item.GetInterface(interfaceName);
+            var result = item.GetInterface(typeof(T).ToString());
             if (null == result)
                 continue;
             Builder.Register(item, Lifetime.Singleton);
         }
     }
 
-    private void InitBindEntryPoint(Assembly dataAccess, string interfaceName)
+    private void InitBindEntryPoint<T>(Assembly dataAccess)
     {
-        /*foreach (Type item in dataAccess.GetTypes())
+        foreach (Type item in dataAccess.GetTypes())
         {
-            if (item == typeof(IStartable))
-                continue;
-            var result = item.GetInterface(interfaceName);
+            var result = item.GetInterface(typeof(T).ToString());
             if (null == result)
                 continue;
-
-        }*/
+            Builder.RegisterEntryPoint(item, Lifetime.Singleton);
+        }
     }
 }
+
