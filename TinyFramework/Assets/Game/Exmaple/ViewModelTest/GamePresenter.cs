@@ -1,6 +1,7 @@
 ﻿using TFrameWork.Events;
 using TFrameWork.UI;
 using UniRx;
+using UnityEngine;
 using VContainer.Unity;
 
 public class TestEvent
@@ -39,12 +40,15 @@ public class GamePresenter : IStartable, ITickable
     {
         IUIPage page = uiManager.CreateUIPage<ViewModelTest, ModelTest, ViewTest>("PanelTest");
         page.ShowUIPage();
-        //helloWorldService.Hello();
+        eventSystem.Receive<TestEvent>().Subscribe(_ =>
+        {
+            Debug.Log(_.hp);
+        });
     }
 
     public void Tick()
     {
-        eventSystem.Publish(new TestEvent(10) {});
+
     }
 }
 
