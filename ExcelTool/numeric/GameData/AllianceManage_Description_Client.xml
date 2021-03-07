@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<client>
+	<Version VersionNO="1"/>
+										
+	<AllianceManage>
+	  <DataRes excelName="ID"						DataType="int"/>
+	    <DataRes excelName="master"						DataType="int"/>
+	    <DataRes excelName="vice_master"						DataType="int"/>
+		<DataRes excelName="elite_person"						DataType="int"/>
+		<DataRes excelName="normal_person"						DataType="int"/>
+	 </AllianceManage>
+	 
+</client>
