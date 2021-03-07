@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine.UI;
 
-namespace TFrameWork.IEnumeratorTool
+namespace TFramework.IEnumeratorTool
 {
     public class IEnumeratorTool : MonoBehaviour
     {

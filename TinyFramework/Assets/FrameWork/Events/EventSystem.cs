@@ -1,7 +1,7 @@
 ﻿using System;
 using UniRx;
 
-namespace TFrameWork.Events
+namespace TFramework.Events
 {
     public class EventSystem : IEventSystem
     {

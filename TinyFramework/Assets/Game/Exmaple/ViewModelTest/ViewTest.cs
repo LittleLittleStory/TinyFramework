@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using TFrameWork.UI;
+using TFramework.UI;
 using UnityEngine;
 using UnityEngine.UI;
 

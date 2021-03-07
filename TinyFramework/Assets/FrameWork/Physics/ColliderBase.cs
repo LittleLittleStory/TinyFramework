@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using TFrameWork.Events;
+using TFramework.Events;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-namespace TFrameWork.Physics
+namespace TFramework.Physics
 {
     public class ColliderBase : MonoBehaviour
     {

@@ -2,7 +2,7 @@
 using UnityEngine;
 using VContainer;
 
-namespace TFrameWork.VContainer
+namespace TFramework.VContainer
 {
     public static class VContainerExtensions
     {

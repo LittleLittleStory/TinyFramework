@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TFrameWork.UI
+namespace TFramework.UI
 {
     public class ModelBase
     {

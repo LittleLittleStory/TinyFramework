@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TFrameWork.Events
+namespace TFramework.Events
 {
     public interface IEventSystem
     {

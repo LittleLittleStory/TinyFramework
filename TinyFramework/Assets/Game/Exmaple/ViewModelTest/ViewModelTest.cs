@@ -1,7 +1,7 @@
-﻿using TFrameWork.Events;
+﻿using TFramework.Events;
 using UnityEngine;
 using UniRx;
-using TFrameWork.UI;
+using TFramework.UI;
 
 public class ViewModelTest : ViewModelBase<ModelTest, ViewTest>
 {

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
-namespace  TFrameWork.UI
+namespace  TFramework.UI
 {
     public interface IUIManager
     {
@@ -28,7 +29,7 @@ namespace  TFrameWork.UI
         /// <typeparam name="T2"></typeparam>
         /// <param name="UILayer"></param>
         /// <returns></returns>
-        IUIPage CreateUIPage<TViewModel, TModel, TView>(string UIPageName)
+        IUIPage CreateUIPage<TViewModel, TModel, TView>(string UIPageName, Transform canvas = null)
             where TViewModel : ViewModelBase<TModel, TView>
             where TModel : ModelBase, new()
             where TView : ViewBase, new();

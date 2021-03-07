@@ -7,7 +7,7 @@ using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-namespace TFrameWork.UI
+namespace TFramework.UI
 {
     public class UIPage<TViewModel, TModel, TView> : UIPageBase<TViewModel, TModel, TView>
         where TViewModel : ViewModelBase<TModel, TView>

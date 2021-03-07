@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TFrameWork.Singleton
+namespace TFramework.Singleton
 {
     public class Singleton<T> : MonoBehaviour where T : Singleton<T>
     {

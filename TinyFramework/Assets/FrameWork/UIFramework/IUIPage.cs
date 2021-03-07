@@ -1,4 +1,4 @@
-﻿namespace TFrameWork.UI
+﻿namespace TFramework.UI
 {
     public interface IUIPage
     {

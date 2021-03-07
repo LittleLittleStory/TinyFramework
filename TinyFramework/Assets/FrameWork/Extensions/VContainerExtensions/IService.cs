@@ -1,4 +1,4 @@
-﻿namespace TFrameWork.VContainer
+﻿namespace TFramework.VContainer
 {
     public interface IService
     {

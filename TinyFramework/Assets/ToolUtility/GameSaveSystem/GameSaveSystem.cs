@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using TFrameWork.Singleton;
+using TFramework.Singleton;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

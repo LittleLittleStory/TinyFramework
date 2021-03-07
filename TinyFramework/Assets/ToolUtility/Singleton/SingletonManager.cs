@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace TFrameWork.Singleton
+namespace TFramework.Singleton
 {
     public class SingletonManager : MonoBehaviour
     {

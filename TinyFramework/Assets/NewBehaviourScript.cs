@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using TFrameWork.Physics;
+using TFramework.Physics;
 using UnityEngine;
 
 public class NewBehaviourScript : ColliderBase

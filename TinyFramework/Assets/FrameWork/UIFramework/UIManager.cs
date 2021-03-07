@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using TFrameWork.VContainer;
+using TFramework.VContainer;
 using UnityEngine;
 
-namespace TFrameWork.UI
+namespace TFramework.UI
 {
     public class UIManager : IUIManager, IService
     {
+        public static Transform MainCanvas { get; private set; }
         public UIManager()
         {
             UIPages = new Dictionary<string, IUIPage>();
+            MainCanvas = GameObject.Find("MainCanvas").transform;
         }
 
         public Dictionary<string, IUIPage> UIPages { get; private set; }
@@ -30,13 +32,14 @@ namespace TFrameWork.UI
             throw new NotImplementedException();
         }
 
-        public IUIPage CreateUIPage<TViewModel, TModel, TView>(string UIPageName)
+        public IUIPage CreateUIPage<TViewModel, TModel, TView>(string UIPageName, Transform canvas = null)
             where TViewModel : ViewModelBase<TModel, TView>
             where TModel : ModelBase, new()
             where TView : ViewBase, new()
         {
             var prefabs = Resources.Load<GameObject>(UIPageName);
-            var ui = GameObject.Instantiate(prefabs);
+            canvas = canvas == null ? MainCanvas : canvas;
+            var ui = GameObject.Instantiate(prefabs, canvas);
             UIPage<TViewModel, TModel, TView> page = new UIPage<TViewModel, TModel, TView>(UIPageName, ui);
             GameLanucher.Instance.Container.Inject(page);
             return page;

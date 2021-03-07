@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TFrameWork.UI
+namespace TFramework.UI
 {
     public class ViewModelBase<TModel, TView> : IViewModelBase
         where TModel : ModelBase, new()
